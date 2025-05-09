@@ -1,0 +1,51 @@
+﻿<Window
+    x:Class="WpfDemoUI.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:layouts="clr-namespace:WpfDemoUI.Views.Layouts"
+    xmlns:local="clr-namespace:WpfDemoUI.Views"
+    xmlns:shared="clr-namespace:WpfDemoUI.Views.Shared"
+    xmlns:vm="clr-namespace:WpfDemoUI.ViewModels"
+    Title="MainWindow"
+    Width="1000"
+    Height="600">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Sidebar  -->
+        <shared:SidebarControl Grid.Column="0" />
+
+        <!--  Tab Content Area  -->
+        <TabControl
+            Grid.Column="1"
+            ItemContainerStyle="{DynamicResource FlatTabItemStyle}"
+            ItemsSource="{Binding Tabs}"
+            SelectedItem="{Binding SelectedTab}"
+            Style="{DynamicResource FlatTabControlStyle}">
+
+            <!--  Header/tab title  -->
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <!--  Actual content: this is critical  -->
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding Content}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+
+    </Grid>
+</Window>

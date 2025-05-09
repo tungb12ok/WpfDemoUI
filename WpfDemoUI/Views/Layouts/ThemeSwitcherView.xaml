@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="WpfDemoUI.Views.Layouts.ThemeSwitcherView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <StackPanel
+            Margin="32"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="{DynamicResource ForegroundBrush}"
+                Text="Select Theme:" />
+
+            <RadioButton
+                Margin="0,0,0,8"
+                Content="Light Theme"
+                Foreground="{DynamicResource ForegroundBrush}"
+                GroupName="ThemeGroup"
+                IsChecked="{Binding IsLightTheme, Mode=TwoWay}" />
+
+            <RadioButton
+                Content="Dark Theme"
+                Foreground="{DynamicResource ForegroundBrush}"
+                GroupName="ThemeGroup"
+                IsChecked="{Binding IsDarkTheme, Mode=TwoWay}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

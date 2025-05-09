@@ -1,0 +1,102 @@
+﻿<UserControl
+    x:Class="WpfDemoUI.Views.Shared.SidebarControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfDemoUI.Views.Shared"
+    xmlns:vm="clr-namespace:WpfDemoUI.ViewModels">
+
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  HOME Button  -->
+        <Button
+            Margin="8,8,8,0"
+            Command="{Binding NavigateHome}"
+            Style="{DynamicResource SidebarButtonStyle}">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock
+                    Margin="0,0,12,0"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="20"
+                    Text="" />
+                <TextBlock VerticalAlignment="Center" Text="Home" />
+            </StackPanel>
+        </Button>
+
+        <!--  Search Box  -->
+        <Grid
+            Grid.Row="1"
+            Height="32"
+            Margin="8,8,8,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Height="28"
+                Padding="8,2"
+                VerticalAlignment="Center"
+                Style="{DynamicResource ModernTextBoxStyle}" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="4,0"
+                VerticalAlignment="Center"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="{DynamicResource FontSizeH4}"
+                Foreground="{DynamicResource ForegroundBrush}"
+                Text="" />
+        </Grid>
+
+        <!--  Scrollable Navigation  -->
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0,8,0,8"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <ScrollViewer.Resources>
+                <Style BasedOn="{StaticResource ThinScrollBar}" TargetType="ScrollBar" />
+            </ScrollViewer.Resources>
+
+            <StackPanel Margin="8,0,8,0">
+                <Button
+                    Command="{Binding ShowButtonLayout}"
+                    Content="Button Components"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowInputLayout}"
+                    Content="Input Controls"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowListLayout}"
+                    Content="Lists &amp; Tables"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowDialogLayout}"
+                    Content="Dialogs &amp; Popups"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowTabLayout}"
+                    Content="Tabs"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowChartLayout}"
+                    Content="Charts"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowCardLayout}"
+                    Content="Cards &amp; Layouts"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+                <Button
+                    Command="{Binding ShowThemeLayout}"
+                    Content="Theme Settings"
+                    Style="{DynamicResource SidebarButtonStyle}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

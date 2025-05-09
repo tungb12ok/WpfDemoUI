@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Màu chủ đạo trung tính nhẹ hơn  -->
+    <Color x:Key="PrimaryColor">#FF666666</Color>
+    <!--  Gray 40%  -->
+    <Color x:Key="SecondaryColor">#FF888888</Color>
+    <!--  Gray 53%  -->
+    <Color x:Key="ErrorColor">#FFCC5A5A</Color>
+    <!--  Softer red  -->
+
+    <!--  Backgrounds nhạt hơn  -->
+    <Color x:Key="BackgroundColor">#FFEEEEEE</Color>
+    <!--  Light gray background  -->
+    <Color x:Key="SurfaceColor">#FFDCDCDC</Color>
+    <!--  Light surface  -->
+    <Color x:Key="ControlHoverColor">#FFCCCCCC</Color>
+    <!--  Hover  -->
+    <Color x:Key="ControlPressedColor">#FFB5B5B5</Color>
+    <!--  Pressed  -->
+    <Color x:Key="BorderColor">#FFA0A0A0</Color>
+    <!--  Soft border  -->
+
+    <!--  Foregrounds  -->
+    <Color x:Key="ForegroundColor">#FF1E1E1E</Color>
+    <!--  Dark text  -->
+    <Color x:Key="SecondaryTextColor">#FF555555</Color>
+    <!--  Medium gray  -->
+    <Color x:Key="DisabledTextColor">#FF999999</Color>
+    <!--  Disabled  -->
+    <Color x:Key="PlaceholderTextColor">#FFAAAAAA</Color>
+    <!--  Placeholder  -->
+
+    <!--  UI State  -->
+    <Color x:Key="SelectedItemColor">#FFE0E0E0</Color>
+    <!--  Selected row  -->
+    <Color x:Key="HighlightColor">#66CCCCCC</Color>
+    <!--  Light highlight  -->
+
+</ResourceDictionary>

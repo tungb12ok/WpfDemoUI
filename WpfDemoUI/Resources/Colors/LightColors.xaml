@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Color Definitions  -->
+    <Color x:Key="PrimaryColor">#FF3C3C3C</Color>
+    <Color x:Key="SecondaryColor">#D6D5D5</Color>
+    <Color x:Key="ErrorColor">#FFD13438</Color>
+    <Color x:Key="BackgroundColor">#E5E5E5</Color>
+    <Color x:Key="ForegroundColor">#FF1E1E1E</Color>
+
+    <!--  Brushes  -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{DynamicResource SecondaryColor}" />
+    <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{DynamicResource ForegroundColor}" />
+    <SolidColorBrush x:Key="BorderColorBrush" Color="{DynamicResource PrimaryColor}" />
+
+    <!--  Button Styles  -->
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeightBold}" />
+    </Style>
+
+    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeightNormal}" />
+    </Style>
+
+    <Style x:Key="DangerButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeightBold}" />
+    </Style>
+
+    <Style x:Key="OutlinedButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeightNormal}" />
+    </Style>
+</ResourceDictionary>
