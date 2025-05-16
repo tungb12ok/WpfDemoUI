@@ -4,9 +4,15 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Color x:Key="BackgroundColor">#FF1E1E1E</Color>
-    <Color x:Key="ForegroundColor">#FFF5F5F5</Color>
-    <Color x:Key="PrimaryColor">#FF444444</Color>
+    <Color x:Key="ForegroundColor">#FF1E1E1E</Color>
+    <Color x:Key="PrimaryColor">#f5f5f5</Color>
     <Color x:Key="SecondaryColor">#FF5A5A5A</Color>
     <Color x:Key="ErrorColor">#FFD13438</Color>
-
+    <!--  Brushes  -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{DynamicResource SecondaryColor}" />
+    <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{DynamicResource ForegroundColor}" />
+    <SolidColorBrush x:Key="BorderColorBrush" Color="{DynamicResource PrimaryColor}" />
 </ResourceDictionary>

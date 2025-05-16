@@ -5,7 +5,7 @@
     <Color x:Key="SecondaryColor">#D6D5D5</Color>
     <Color x:Key="ErrorColor">#FFD13438</Color>
     <Color x:Key="BackgroundColor">#E5E5E5</Color>
-    <Color x:Key="ForegroundColor">#FF1E1E1E</Color>
+    <Color x:Key="ForegroundColor">#F5f5f5</Color>
 
     <!--  Brushes  -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource PrimaryColor}" />
@@ -48,7 +48,7 @@
 
     <Style x:Key="OutlinedButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Padding" Value="10,6" />
         <Setter Property="Margin" Value="4" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColorBrush}" />

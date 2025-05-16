@@ -7,7 +7,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Background="{DynamicResource BackgroundBrush}">
+    <Grid Background="{DynamicResource ForegroundBrush}">
         <StackPanel
             Margin="32"
             HorizontalAlignment="Left"
@@ -16,19 +16,19 @@
                 Margin="0,0,0,16"
                 FontSize="16"
                 FontWeight="Bold"
-                Foreground="{DynamicResource ForegroundBrush}"
+                Foreground="{DynamicResource PrimaryBrush}"
                 Text="Select Theme:" />
 
             <RadioButton
                 Margin="0,0,0,8"
                 Content="Light Theme"
-                Foreground="{DynamicResource ForegroundBrush}"
+                Foreground="{DynamicResource PrimaryBrush}"
                 GroupName="ThemeGroup"
                 IsChecked="{Binding IsLightTheme, Mode=TwoWay}" />
 
             <RadioButton
                 Content="Dark Theme"
-                Foreground="{DynamicResource ForegroundBrush}"
+                Foreground="{DynamicResource PrimaryBrush}"
                 GroupName="ThemeGroup"
                 IsChecked="{Binding IsDarkTheme, Mode=TwoWay}" />
         </StackPanel>

@@ -5,18 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfDemoUI.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{DynamicResource BackgroundBrush}"
+    Background="{DynamicResource ForegroundBrush}"
     mc:Ignorable="d">
-
-    <UserControl.DataContext>
-        <local:ButtonComponentsViewModel />
-    </UserControl.DataContext>
-
     <StackPanel Margin="16">
         <TextBlock
             Margin="0,0,0,16"
-            FontSize="{DynamicResource  FontSizeH2}"
-            FontWeight="{DynamicResource  FontWeightBold}"
+            FontSize="{DynamicResource FontSizeH2}"
+            FontWeight="{DynamicResource FontWeightBold}"
+            Foreground="{DynamicResource PrimaryBrush}"
             Text="Button Variants" />
 
         <WrapPanel
@@ -27,22 +23,25 @@
             <Button
                 Margin="4"
                 Content="Primary"
-                Style="{DynamicResource  PrimaryButtonStyle}" />
+                Style="{DynamicResource PrimaryButtonStyle}" />
             <Button
                 Margin="4"
                 Content="Secondary"
-                Style="{DynamicResource  SecondaryButtonStyle}" />
+                Style="{DynamicResource SecondaryButtonStyle}" />
             <Button
                 Margin="4"
                 Content="Danger"
-                Style="{DynamicResource  DangerButtonStyle}" />
+                Style="{DynamicResource DangerButtonStyle}" />
             <Button
                 Margin="4"
                 Content="Outline"
-                Style="{DynamicResource  OutlinedButtonStyle}" />
+                Style="{DynamicResource OutlinedButtonStyle}" />
         </WrapPanel>
 
-        <TextBlock Margin="0,12,0,4" Text="Generated XAML:" />
+        <TextBlock
+            Margin="0,12,0,4"
+            Foreground="{DynamicResource PrimaryBrush}"
+            Text="Generated XAML:" />
         <TextBox
             Height="120"
             Padding="8"

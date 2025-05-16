@@ -11,10 +11,6 @@
     Width="1000"
     Height="600">
 
-    <Window.DataContext>
-        <vm:MainWindowViewModel />
-    </Window.DataContext>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -27,22 +23,22 @@
         <!--  Tab Content Area  -->
         <TabControl
             Grid.Column="1"
+            Background="{DynamicResource ForegroundBrush}"
             ItemContainerStyle="{DynamicResource FlatTabItemStyle}"
             ItemsSource="{Binding Tabs}"
             SelectedItem="{Binding SelectedTab}"
             Style="{DynamicResource FlatTabControlStyle}">
-
             <!--  Header/tab title  -->
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title}" />
+                    <TextBlock Foreground="{DynamicResource PrimaryBrush}" Text="{Binding Title}" />
                 </DataTemplate>
             </TabControl.ItemTemplate>
 
             <!--  Actual content: this is critical  -->
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <ContentControl Content="{Binding Content}" />
+                    <ContentControl Background="{DynamicResource ForegroundBrush}" Content="{Binding Content}" />
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>

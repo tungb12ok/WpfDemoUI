@@ -1,0 +1,16 @@
+﻿<UserControl
+    x:Class="WpfDemoUI.Views.Shared.SearchCombobox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="root">
+    <ComboBox
+        Background="{DynamicResource BackgroundBrush}"
+        DisplayMemberPath="Display"
+        Foreground="{DynamicResource PrimaryBrush}"
+        IsEditable="True"
+        IsTextSearchEnabled="False"
+        ItemsSource="{Binding FilteredItems, ElementName=root}"
+        SelectedValue="{Binding SelectedValue, ElementName=root, Mode=TwoWay}"
+        SelectedValuePath="Value"
+        Text="{Binding SearchText, ElementName=root, UpdateSourceTrigger=PropertyChanged}" />
+</UserControl>

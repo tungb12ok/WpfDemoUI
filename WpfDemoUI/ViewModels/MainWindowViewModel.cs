@@ -1,56 +1,47 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Controls;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Serilog;
 using WpfDemoUI.Helpers;
-using WpfDemoUI.Views.Layouts;
+using WpfDemoUI.Services;
+using WpfDemoUI.ViewModels;
 
-namespace WpfDemoUI.ViewModels
+public class MainWindowViewModel : ViewModelBase
 {
-    public class MainWindowViewModel : ViewModelBase
+    public ObservableCollection<TabItemViewModel> Tabs { get; }
+    private TabItemViewModel _selectedTab;
+
+    public TabItemViewModel SelectedTab
     {
-        // Tab Collection
-        public ObservableCollection<TabItemViewModel> Tabs { get; } = new ObservableCollection<TabItemViewModel>();
+        get => _selectedTab;
+        set => SetProperty(ref _selectedTab, value);
+    }
 
-        private TabItemViewModel _selectedTab;
-        public TabItemViewModel SelectedTab
+    public ICommand NavigateCommand { get; }
+    public INavigationService Navigation { get; }
+
+    public MainWindowViewModel(IViewFactory viewFactory)
+    {
+        try
         {
-            get => _selectedTab;
-            set => SetProperty(ref _selectedTab, value);
+            Log.Information("MainWindowViewModel constructor started");
+
+            Tabs = new ObservableCollection<TabItemViewModel>();
+            Navigation = new NavigationService(viewFactory, Tabs, tab => SelectedTab = tab);
+
+            NavigateCommand = new RelayCommand(param =>
+                                    {
+                                        if (param is string key)
+                                            Navigation.NavigateTo(key);
+                                    });
+
+            Log.Information("MainWindowViewModel initialized");
         }
-
-        // Commands
-        public ICommand ShowButtonLayout { get; }
-        public ICommand ShowThemeLayout { get; }
-
-        public MainWindowViewModel()
+        catch (Exception ex)
         {
-            ShowButtonLayout = new RelayCommand(_ => OpenTab("Button Components", new ButtonComponentsView()));
-            ShowThemeLayout = new RelayCommand(_ => OpenTab("Theme Settings", new ThemeSwitcherView()));
-        }
-
-        // Tab Navigation
-        private void OpenTab(string title, UserControl view)
-        {
-            var existing = Tabs.FirstOrDefault(t => t.Title == title);
-            if (existing != null)
-            {
-                SelectedTab = existing;
-                return;
-            }
-
-            var newTab = new TabItemViewModel(title, view, CloseTab);
-            Tabs.Add(newTab);
-            SelectedTab = newTab;
-        }
-
-        private void CloseTab(TabItemViewModel tab)
-        {
-            if (Tabs.Contains(tab))
-                Tabs.Remove(tab);
-
-            if (SelectedTab == tab)
-                SelectedTab = Tabs.LastOrDefault();
+            Log.Fatal(ex, "Failed in MainWindowViewModel constructor");
+            throw;
         }
     }
+
 }

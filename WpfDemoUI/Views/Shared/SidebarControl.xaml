@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfDemoUI.Views.Shared"
-    xmlns:vm="clr-namespace:WpfDemoUI.ViewModels">
+    xmlns:vm="clr-namespace:WpfDemoUI.ViewModels"
+    DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+
 
     <Grid Background="{DynamicResource BackgroundBrush}">
         <Grid.RowDefinitions>
@@ -15,7 +17,8 @@
         <!--  HOME Button  -->
         <Button
             Margin="8,8,8,0"
-            Command="{Binding NavigateHome}"
+            Command="{Binding NavigateCommand}"
+            CommandParameter="Home"
             Style="{DynamicResource SidebarButtonStyle}">
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock
@@ -33,10 +36,6 @@
             Grid.Row="1"
             Height="32"
             Margin="8,8,8,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
             <TextBox
                 Grid.Column="0"
                 Height="28"
@@ -46,10 +45,11 @@
             <TextBlock
                 Grid.Column="1"
                 Margin="4,0"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 FontFamily="Segoe MDL2 Assets"
                 FontSize="{DynamicResource FontSizeH4}"
-                Foreground="{DynamicResource ForegroundBrush}"
+                Foreground="{DynamicResource PrimaryBrush}"
                 Text="" />
         </Grid>
 
@@ -65,35 +65,43 @@
 
             <StackPanel Margin="8,0,8,0">
                 <Button
-                    Command="{Binding ShowButtonLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Button Components"
                     Content="Button Components"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowInputLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Input Components"
                     Content="Input Controls"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowListLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Lists &amp; Tables"
                     Content="Lists &amp; Tables"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowDialogLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Dialogs &amp; Popups"
                     Content="Dialogs &amp; Popups"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowTabLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Tabs"
                     Content="Tabs"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowChartLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Charts"
                     Content="Charts"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowCardLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Cards &amp; Layouts"
                     Content="Cards &amp; Layouts"
                     Style="{DynamicResource SidebarButtonStyle}" />
                 <Button
-                    Command="{Binding ShowThemeLayout}"
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="Theme Settings"
                     Content="Theme Settings"
                     Style="{DynamicResource SidebarButtonStyle}" />
             </StackPanel>

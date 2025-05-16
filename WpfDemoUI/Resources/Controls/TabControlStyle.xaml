@@ -2,54 +2,53 @@
 
     <!--  TabItem Style  -->
     <Style x:Key="FlatTabItemStyle" TargetType="TabItem">
-        <Setter Property="Margin" Value="0,0,4,0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="Width" Value="200" />
         <Setter Property="FontWeight" Value="{DynamicResource FontWeightNormal}" />
-        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0,0,0,2" />
-        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource BackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
                     <Border
                         x:Name="Bd"
-                        Padding="10,4,4,4"
+                        Width="{TemplateBinding Width}"
+                        Margin="4,0,0,0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="6,6,0,0">
-                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                        <Grid VerticalAlignment="Center">
                             <ContentPresenter
-                                Margin="0,0,8,0"
                                 VerticalAlignment="Center"
                                 ContentSource="Header"
                                 RecognizesAccessKey="True" />
 
                             <Button
-                                Width="16"
-                                Height="16"
-                                Padding="0"
+                                x:Name="btn"
+                                Width="22"
+                                Height="22"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
                                 Background="{DynamicResource BackgroundBrush}"
                                 BorderThickness="0"
                                 Command="{Binding CloseCommand}"
                                 Content="×"
                                 Cursor="Hand"
-                                FontSize="15"
-                                Foreground="{DynamicResource ErrorBrush}"
+                                FontSize="22"
+                                Foreground="{DynamicResource PrimaryBrush}"
                                 ToolTip="Close tab" />
-                        </StackPanel>
+                        </Grid>
                     </Border>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource BackgroundBrush}" />
+                            <Setter TargetName="Bd" Property="BorderThickness" Value="0,0,0,1" />
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ForegroundBrush}" />
                             <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter TargetName="btn" Property="Background" Value="{DynamicResource ForegroundBrush}" />
+                            <Setter TargetName="btn" Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
                             <Setter Property="FontWeight" Value="{DynamicResource FontWeightBold}" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource SecondaryBrush}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.4" />
@@ -62,7 +61,7 @@
 
     <!--  TabControl Style  -->
     <Style x:Key="FlatTabControlStyle" TargetType="TabControl">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ForegroundBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Template">
@@ -76,7 +75,7 @@
 
                         <TabPanel
                             Grid.Row="0"
-                            Background="{TemplateBinding Background}"
+                            Background="{DynamicResource BackgroundBrush}"
                             IsItemsHost="True" />
 
                         <Border
